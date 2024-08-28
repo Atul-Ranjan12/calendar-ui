@@ -1,5 +1,6 @@
 import { __awaiter, __generator } from "tslib";
 import React, { useState, useEffect } from "react";
+import "./BookingCalendar.css";
 // Booking Calendar itself
 export var BookingCalendar = function (_a) {
     var setDateUserFormData = _a.setDateUserFormData, dateFormatterFunction = _a.dateFormatterFunction, reservationDayName = _a.reservationDayName, errorToast = _a.errorToast, wrongDateErrorMessage = _a.wrongDateErrorMessage, hasFetcher = _a.hasFetcher, getAvailableDates = _a.getAvailableDates, getAvailableDatesErrorRollback = _a.getAvailableDatesErrorRollback;

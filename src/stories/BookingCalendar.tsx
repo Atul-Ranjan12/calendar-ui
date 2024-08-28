@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import "./BookingCalendar.css";
 
 /*
 TODO: These are the things TO-DO at the moment

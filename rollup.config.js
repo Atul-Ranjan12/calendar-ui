@@ -25,12 +25,8 @@ const config = [
     external: ["react", "react-dom"],
     plugins: [
       postcss({
-        plugins: [
-          tailwindcss(), // Add Tailwind CSS plugin
-          autoprefixer(), // Add Autoprefixer plugin
-        ],
+        plugins: [],
         minimize: true,
-        extract: "dist/styles.css", // Extract CSS to a separate file
       }),
       babel({
         exclude: "node_modules/**",
