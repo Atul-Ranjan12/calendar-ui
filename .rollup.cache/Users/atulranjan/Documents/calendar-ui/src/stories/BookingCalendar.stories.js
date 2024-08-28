@@ -1,3 +1,4 @@
+import { __awaiter, __generator } from "tslib";
 import { BookingCalendar } from "./BookingCalendar";
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 var meta = {
@@ -24,6 +25,12 @@ export var Primary = {
         wrongDateErrorMessage: "Date unavailable, please click another",
         errorToast: function (msg) { },
         hasFetcher: false,
+        getAvailableDates: function () { return __awaiter(void 0, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, []];
+            });
+        }); },
+        getAvailableDatesErrorRollback: function () { },
     },
 };
 //# sourceMappingURL=BookingCalendar.stories.js.map

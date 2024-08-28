@@ -29,5 +29,9 @@ export const Primary: Story = {
     wrongDateErrorMessage: "Date unavailable, please click another",
     errorToast: (msg: string) => {},
     hasFetcher: false,
+    getAvailableDates: async () => {
+      return [];
+    },
+    getAvailableDatesErrorRollback: () => {},
   },
 };

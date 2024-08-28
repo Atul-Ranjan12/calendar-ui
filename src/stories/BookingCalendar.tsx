@@ -18,11 +18,11 @@ interface BookingCalendarProps {
   // Function to get available dates from the backend
   // set hasFetcher = false to skip getting available dates
   hasFetcher: boolean;
-  getAvailableDates?: () => Promise<string[]>;
+  getAvailableDates: () => Promise<string[]>;
 
   // Function to set off a rollback in case of failure to
   // fetch dates
-  getAvailableDatesErrorRollback?: () => void;
+  getAvailableDatesErrorRollback: () => void;
 
   // Function to handle the user form when a date is
   // clicked
