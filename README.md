@@ -42,7 +42,7 @@ Here's a basic example of how to use the BookingCalendar component in your React
 
 ```jsx
 import React from "react";
-import BookingCalendar from "booking-calendar-component";
+import BookingCalendar from "gott-calendar-ui";
 
 const App = () => {
   const handleDateSelection = (date) => {

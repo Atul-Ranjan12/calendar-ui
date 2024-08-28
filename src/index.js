@@ -1,1 +1,1 @@
-export * from "./stories/BookingCalendar.tsx";
+export { BookingCalendar } from "./stories/BookingCalendar.tsx";
