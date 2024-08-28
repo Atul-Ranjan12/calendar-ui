@@ -23,6 +23,7 @@ export var Primary = {
         setDateUserFormData: function (date) { },
         wrongDateErrorMessage: "Date unavailable, please click another",
         errorToast: function (msg) { },
+        hasFetcher: false,
     },
 };
 //# sourceMappingURL=BookingCalendar.stories.js.map

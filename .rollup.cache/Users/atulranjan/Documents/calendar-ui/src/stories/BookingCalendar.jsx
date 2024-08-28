@@ -2,7 +2,7 @@ import { __awaiter, __generator } from "tslib";
 import React, { useState, useEffect } from "react";
 // Booking Calendar itself
 export var BookingCalendar = function (_a) {
-    var setDateUserFormData = _a.setDateUserFormData, dateFormatterFunction = _a.dateFormatterFunction, reservationDayName = _a.reservationDayName, errorToast = _a.errorToast, wrongDateErrorMessage = _a.wrongDateErrorMessage;
+    var setDateUserFormData = _a.setDateUserFormData, dateFormatterFunction = _a.dateFormatterFunction, reservationDayName = _a.reservationDayName, errorToast = _a.errorToast, wrongDateErrorMessage = _a.wrongDateErrorMessage, hasFetcher = _a.hasFetcher, getAvailableDates = _a.getAvailableDates, getAvailableDatesErrorRollback = _a.getAvailableDatesErrorRollback;
     // State to store the current date
     var _b = useState(new Date()), currentDate = _b[0], setCurrentDate = _b[1];
     // State to store the available dates so as for the calendar
@@ -15,11 +15,31 @@ export var BookingCalendar = function (_a) {
     // This effect fetches any data that is required
     // if required from the server, or simply to add available dates
     useEffect(function () {
-        var fetchData = function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2 /*return*/];
-        }); }); };
+        var fetchData = function () { return __awaiter(void 0, void 0, void 0, function () {
+            var avDates, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!hasFetcher)
+                            return [2 /*return*/];
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, getAvailableDates()];
+                    case 2:
+                        avDates = _a.sent();
+                        setAvailableDates(avDates);
+                        return [3 /*break*/, 4];
+                    case 3:
+                        error_1 = _a.sent();
+                        getAvailableDatesErrorRollback();
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/];
+                }
+            });
+        }); };
         fetchData();
-    }, []);
+    }, [getAvailableDates, getAvailableDatesErrorRollback, hasFetcher]);
     // This function handles when a particular date
     // has been clicked
     var dateClicked = function (day) {
