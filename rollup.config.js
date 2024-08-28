@@ -5,6 +5,8 @@ import commonjs from "@rollup/plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
 import postcss from "rollup-plugin-postcss";
 import typescript from "@rollup/plugin-typescript";
+import tailwindcss from "tailwindcss";
+import autoprefixer from "autoprefixer";
 
 const config = [
   {
@@ -23,8 +25,12 @@ const config = [
     external: ["react", "react-dom"], // Add react and react-dom to externals
     plugins: [
       postcss({
-        plugins: [],
+        plugins: [
+          tailwindcss(), // Add Tailwind CSS plugin
+          autoprefixer(), // Add Autoprefixer plugin
+        ],
         minimize: true,
+        extract: true, // Extract CSS to a separate file
       }),
       babel({
         exclude: "node_modules/**",
