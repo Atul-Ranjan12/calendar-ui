@@ -4,6 +4,7 @@ var config = {
         "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
         "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
         "./src/stories/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/**/*.{js,jsx,ts,tsx}",
     ],
     theme: {
         extend: {

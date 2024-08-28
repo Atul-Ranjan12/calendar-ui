@@ -1,6 +1,6 @@
 {
   "name": "gott-calendar-ui",
-  "version": "0.1.2",
+  "version": "0.1.21",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "scripts": {

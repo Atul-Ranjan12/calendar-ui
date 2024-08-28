@@ -10,7 +10,7 @@ import autoprefixer from "autoprefixer";
 
 const config = [
   {
-    input: "./src/index.js", // Updated to .ts if you're using TypeScript for the entry file
+    input: "./src/index.js",
     output: [
       {
         file: "dist/index.js",
@@ -22,7 +22,7 @@ const config = [
         exports: "named",
       },
     ],
-    external: ["react", "react-dom"], // Add react and react-dom to externals
+    external: ["react", "react-dom"],
     plugins: [
       postcss({
         plugins: [
@@ -30,19 +30,19 @@ const config = [
           autoprefixer(), // Add Autoprefixer plugin
         ],
         minimize: true,
-        extract: true, // Extract CSS to a separate file
+        extract: "dist/styles.css", // Extract CSS to a separate file
       }),
       babel({
         exclude: "node_modules/**",
         presets: ["@babel/preset-react"],
-        extensions: [".js", ".jsx", ".ts", ".tsx"], // Ensure Babel processes TypeScript files
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
       }),
       external(),
       resolve({
-        extensions: [".js", ".jsx", ".ts", ".tsx"], // Add .ts and .tsx extensions here as well
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
       }),
-      commonjs(), // Add this plugin to handle CommonJS modules
-      typescript({ tsconfig: "./tsconfig.json" }), // Add TypeScript support
+      commonjs(),
+      typescript({ tsconfig: "./tsconfig.json" }),
       terser(),
     ],
   },
