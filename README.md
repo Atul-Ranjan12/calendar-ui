@@ -27,13 +27,13 @@ integrations
 Install the component using npm:
 
 ```bash
-npm install booking-calendar-component
+npm install gott-calendar-ui
 ```
 
 or using yarn
 
 ```bash
-yarn add booking-calendar-component
+yarn add gott-calendar-ui
 ```
 
 ## Example Usage
