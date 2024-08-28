@@ -1,4 +1,4 @@
-# Calendar-UI
+# Gott-Calendar-UI
 
 A simple and elegant booking calendar to get things done simply for
 React. This library along with this component will feature many other
