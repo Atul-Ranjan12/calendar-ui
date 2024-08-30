@@ -35,7 +35,7 @@ or using yarn
 yarn add gott-calendar-ui
 ```
 
-## Calendar COmponent
+## Calendar Component
 
 For calendar tasks with simple requirements
 and date picking requirements, also includes custom functions to validate dates
