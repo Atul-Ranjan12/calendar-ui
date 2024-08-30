@@ -9,7 +9,7 @@ import typescript from "@rollup/plugin-typescript";
 
 const config = [
   {
-    input: "./src/index.js", // Update to the correct entry point (use .tsx if using TypeScript)
+    input: "./src/index.ts", // Update to the correct entry point (use .tsx if using TypeScript)
     output: [
       {
         file: "dist/index.js",
