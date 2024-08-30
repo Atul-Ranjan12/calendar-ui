@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { BookingCalendar } from "./BookingCalendar";
+import Calendar from "./Calendar";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta = {
-  title: "Booking Calendar",
-  component: BookingCalendar,
+  title: "Calendar",
+  component: Calendar,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
@@ -15,23 +15,12 @@ const meta: Meta = {
   argTypes: {},
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: {},
-} satisfies Meta<typeof BookingCalendar>;
+} satisfies Meta<typeof Calendar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
-  args: {
-    name: "Reservation Calendar",
-    reservationDayName: "Consultation day",
-    setDateUserFormData: (date: string) => {},
-    wrongDateErrorMessage: "Date unavailable, please click another",
-    errorToast: (msg: string) => {},
-    hasFetcher: false,
-    getAvailableDates: async () => {
-      return [];
-    },
-    getAvailableDatesErrorRollback: () => {},
-  },
+  args: {},
 };

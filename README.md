@@ -10,7 +10,6 @@ integrations
 
 <img width="793" alt="Screen Shot 2024-08-29 at 02 39 31" src="https://github.com/user-attachments/assets/c2133b01-91e5-4002-89be-1713d66cfeab">
 
-
 ## Features
 
 - **Responsive Design**: Automatically adjusts to different screen sizes.
@@ -36,7 +35,80 @@ or using yarn
 yarn add gott-calendar-ui
 ```
 
-## Example Usage
+## Calendar COmponent
+
+For calendar tasks with simple requirements
+and date picking requirements, also includes custom functions to validate dates
+
+### Example Usage
+
+```tsx
+"use client";
+import React from "react";
+import { BookingCalendar, Calendar } from "gott-calendar-ui";
+
+export default function Home() {
+  const handleDateSelection = (date: string) => {
+    console.log("Selected date:", date);
+  };
+
+  const handleError = (message: string) => {
+    console.log("Selected date:", message);
+  };
+
+  const getAvailableDates = async () => {
+    const dates = await ["2024-09-09"];
+    return dates;
+  };
+
+  const getAvailableDatesRollback = () => {
+    return;
+  };
+
+  return (
+    <main>
+      <section className="p-32 h-screen w-screen flex items-center justify-center">
+        <div className="p-32">
+          <Calendar
+            validateDateFunction={() => true}
+            errorMessage="Invalid date"
+            handleError={() => {}}
+          />
+        </div>
+      </section>
+    </main>
+  );
+}
+```
+
+Props
+-----
+
+The `Calendar` component accepts the following props:
+
+### `validateDateFunction`
+
+-   **Type:** `(date: Date) => boolean`
+-   **Description:** A function that validates if a given date is selectable. It should return `true` if the date is valid, and `false` otherwise.
+-   **Required:** Yes
+
+### `errorMessage`
+
+-   **Type:** `string`
+-   **Description:** The error message displayed when an invalid date is selected.
+-   **Required:** Yes
+
+### `handleError`
+
+-   **Type:** `(msg: string) => void`
+-   **Description:** A function that handles displaying error messages. It receives the `errorMessage` string when an invalid date is clicked.
+-   **Required:** Yes
+
+## Booking Calendar Component
+
+For calendar tasks with reservation requirements and date validation for specific dates
+
+### Example Usage
 
 Here's a basic example of how to use the BookingCalendar component in your React application:
 
@@ -67,7 +139,7 @@ const App = () => {
 export default App;
 ```
 
-## Props
+### Props
 
 The `BookingCalendar` component accepts the following props:
 
