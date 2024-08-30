@@ -5,12 +5,11 @@ import commonjs from "@rollup/plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
 import postcss from "rollup-plugin-postcss";
 import typescript from "@rollup/plugin-typescript";
-import tailwindcss from "tailwindcss";
-import autoprefixer from "autoprefixer";
+// Removed tailwindcss and autoprefixer imports as they are not used
 
 const config = [
   {
-    input: "./src/index.js",
+    input: "./src/index.js", // Update to the correct entry point (use .tsx if using TypeScript)
     output: [
       {
         file: "dist/index.js",
@@ -22,10 +21,14 @@ const config = [
         exports: "named",
       },
     ],
-    external: ["react", "react-dom"],
+    external: ["react", "react-dom"], // Exclude peer dependencies
     plugins: [
       postcss({
-        plugins: [],
+        plugins: [
+          // Add tailwindcss and autoprefixer here if used in PostCSS config
+          require("tailwindcss")(),
+          require("autoprefixer")(),
+        ],
         minimize: true,
       }),
       babel({
@@ -38,7 +41,12 @@ const config = [
         extensions: [".js", ".jsx", ".ts", ".tsx"],
       }),
       commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
+      typescript({
+        tsconfig: "./tsconfig.json",
+        declaration: true, // Ensure TypeScript generates declaration files
+        declarationDir: "dist/types", // Output directory for declaration files
+        rootDir: "src", // Root directory of input files
+      }),
       terser(),
     ],
   },

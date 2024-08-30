@@ -11,7 +11,7 @@ export var BookingCalendar = function (_a) {
     // Date format is "yyyy-dd-mm"
     var _c = useState([
     // This is an example date format
-    // "2024-08-30",
+    // "2024-09-10",
     ]), availableDates = _c[0], setAvailableDates = _c[1];
     // This effect fetches any data that is required
     // if required from the server, or simply to add available dates

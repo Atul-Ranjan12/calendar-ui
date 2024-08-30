@@ -58,7 +58,7 @@ export const BookingCalendar = ({
   // Date format is "yyyy-dd-mm"
   const [availableDates, setAvailableDates] = useState<string[]>([
     // This is an example date format
-    // "2024-08-30",
+    // "2024-09-10",
   ]);
 
   // This effect fetches any data that is required
