@@ -5,6 +5,7 @@ interface SimpleCalendarProps {
     errorMessage: string;
     handleError: (msg: string) => void;
     darkMode?: boolean;
+    onDateSelect: (date: Date) => void;
 }
-export declare const SimpleCalendar: ({ validateDateFunction, errorMessage, handleError, darkMode, }: SimpleCalendarProps) => React.JSX.Element;
+export declare const SimpleCalendar: ({ validateDateFunction, errorMessage, handleError, onDateSelect, darkMode, }: SimpleCalendarProps) => React.JSX.Element;
 export {};
