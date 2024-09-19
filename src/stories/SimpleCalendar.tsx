@@ -14,7 +14,7 @@ export const SimpleCalendar = ({
   errorMessage,
   handleError,
   handleDateSelect,
-  darkMode = false, // Default to light mode
+  darkMode = false,
 }: SimpleCalendarProps) => {
   const dateToday = new Date();
   const [currentDate, setCurrentDate] = useState<Date>(new Date());
