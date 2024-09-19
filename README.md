@@ -13,7 +13,6 @@ integrations
 <img width="989" alt="Screen Shot 2024-09-19 at 17 54 58" src="https://github.com/user-attachments/assets/22420d35-f8be-483e-a545-b34b5334fc9d">
 
 
-
 ## Features
 
 - **Responsive Design**: Automatically adjusts to different screen sizes.
