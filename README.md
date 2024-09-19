@@ -8,7 +8,11 @@ calendar features that can be easily integrated into your react-app.
 The calendar is easy to use, intuitive, and good looking for
 integrations
 
-<img width="793" alt="Screen Shot 2024-08-29 at 02 39 31" src="https://github.com/user-attachments/assets/c2133b01-91e5-4002-89be-1713d66cfeab">
+<img width="995" alt="Screen Shot 2024-09-19 at 17 54 40" src="https://github.com/user-attachments/assets/6911819b-058c-4211-86f6-bd380ac66ac8">
+
+<img width="989" alt="Screen Shot 2024-09-19 at 17 54 58" src="https://github.com/user-attachments/assets/22420d35-f8be-483e-a545-b34b5334fc9d">
+
+
 
 ## Features
 
