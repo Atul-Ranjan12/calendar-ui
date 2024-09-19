@@ -7,6 +7,7 @@ interface SimpleCalendarProps {
   handleError: (msg: string) => void;
   darkMode?: boolean;
   onDateSelect: (date: Date) => void;
+  message: string; // Try
 }
 
 export const SimpleCalendar = ({
@@ -14,6 +15,7 @@ export const SimpleCalendar = ({
   errorMessage,
   handleError,
   onDateSelect,
+  message,
   darkMode = false,
 }: SimpleCalendarProps) => {
   const dateToday = new Date();
