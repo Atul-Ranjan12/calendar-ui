@@ -35,13 +35,188 @@ or using yarn
 yarn add gott-calendar-ui
 ```
 
+## SimpleRangePicker Component
+
+The `SimpleRangePicker` is a React component that allows users
+to select a date range. It provides features like custom date validation, error handling, and dark mode support.
+
+````tsx
+import SimpleRangePicker from "./SimpleRangePicker";
+
+const handleRangeSelection = (startDate, endDate) => {
+  console.log(`Selected range: ${startDate} to ${endDate}`);
+};
+
+const handleError = (msg) => {
+  console.error(msg);
+};
+
+const App = () => (
+  <SimpleRangePicker
+    validateDateFunction={(date) => date >= new Date()}
+    errorMessage="Selected date is in the past."
+    handleError={handleError}
+    validateRange={(startDate, endDate) => endDate - startDate <= 7 * 24 * 60 * 60 * 1000} // Max 7 days range
+    rangeSelected={handleRangeSelection}
+    handleRangeInvalidError={(msg) => alert(msg)}
+    rangeInvalidErrorMessage="The selected range is too long."
+    darkMode={false}
+  />
+);
+````
+
+
+## Props
+
+The `SimpleRangePicker` component accepts the following props
+
+### `validateDateFunction` (optional)
+
+-   **Type**: `(date: Date) => boolean`
+-   **Description**: A function to validate individual dates before selection. If this function returns `false`, the date will be considered invalid, and the `handleError` function will be called with the `errorMessage`.
+
+### `validateRange` (optional)
+
+-   **Type**: `(startDate: Date, endDate: Date) => boolean`
+-   **Description**: A function to validate the selected date range. If the function returns `false`, the `handleRangeInvalidError` function will be called with the `rangeInvalidErrorMessage`.
+
+### `rangeSelected`
+
+-   **Type**: `(startDate: Date, endDate: Date) => void`
+-   **Description**: Callback function that is called when a valid date range is selected.
+
+### `handleRangeInvalidError`
+
+-   **Type**: `(msg: string) => void`
+-   **Description**: Callback function that is called when the selected date range is invalid. The `rangeInvalidErrorMessage` will be passed as an argument.
+
+### `rangeInvalidErrorMessage`
+
+-   **Type**: `string`
+-   **Description**: The error message to display when an invalid date range is selected.
+
+### `errorMessage`
+
+-   **Type**: `string`
+-   **Description**: The error message to display when an individual date selection is invalid.
+
+### `handleError`
+
+-   **Type**: `(msg: string) => void`
+-   **Description**: Callback function that is called when an individual date is invalid according to the `validateDateFunction`. The `errorMessage` will be passed as an argument.
+
+### `darkMode` (optional)
+
+-   **Type**: `boolean`
+-   **Default**: `true`
+
+-   **Description**: Determines if the component should be rendered in dark mode. If `true`, the component will use dark colors.
+
+## State
+
+-   `currentDate`: The currently displayed month in the calendar.
+-   `rangeStart`: The start date of the selected range.
+-   `rangeEnd`: The end date of the selected range.
+-   `hoverDate`: The date that the mouse is currently hovering over.
+-   `selectedRange`: A string representation of the selected date range.
+
+
+## SimpleCalendar Component
+The `SimpleCalendar` is a React component that allows users to select individual dates from a calendar. It includes features for custom date validation, error handling, and optional dark mode support.
+
+````tsx
+import React, { useState } from "react";
+import "./output.css";
+
+interface SimpleCalendarProps {
+  validateDateFunction: (date: Date) => boolean;
+  errorMessage: string;
+  handleError: (msg: string) => void;
+  darkMode?: boolean; // New prop for dark mode
+}
+
+const SimpleCalendar = ({
+  validateDateFunction,
+  errorMessage,
+  handleError,
+  darkMode = false, // Default to light mode
+}: SimpleCalendarProps) => {
+  // Component implementation
+};
+
+export default SimpleCalendar;
+````
+
+## Props
+
+The `SimpleCalendar` component accepts the following props:
+
+#### `validateDateFunction`
+
+-   **Type**: `(date: Date) => boolean`
+-   **Description**: A function to validate the date selected by the user. If the function returns `false`, the date is considered invalid, and the `handleError` function will be called with the `errorMessage`.
+
+#### `errorMessage`
+
+-   **Type**: `string`
+-   **Description**: The error message to display when an invalid date is selected according to the `validateDateFunction`.
+
+#### `handleError`
+
+-   **Type**: `(msg: string) => void`
+-   **Description**: Callback function that is called when an invalid date is selected. The `errorMessage` will be passed as an argument.
+
+#### `darkMode` (optional)
+
+-   **Type**: `boolean`
+-   **Default**: `false`
+-   **Description**: Determines if the component should be rendered in dark mode. If `true`, the component will use a dark color scheme. Defaults to light mode when not provided.
+
+### State
+
+-   **`currentDate`**: Tracks the currently displayed month in the calendar.
+-   **`selectedDate`**: Stores the selected date.
+
+### Rendering
+
+-   The component renders a calendar interface with the following features:
+-   **Month Navigation**: Buttons to navigate to the previous and next months.
+-   **Weekday Headers**: Displays the days of the week (Sun-Sat).
+-   **Date Cells**: Each date is displayed in a cell, with styles applied for the current day, selected day, and weekends.
+-   **Legend**: A legend at the bottom explains the color coding for the current date and selected date.
+
+### Example Usage
+
+tsx
+
+Copy code
+
+`const handleDateError = (msg) => {
+  console.error(msg);
+};
+
+const App = () => (
+  <SimpleCalendar
+    validateDateFunction={(date) => date >= new Date()}
+    errorMessage="Selected date is in the past."
+    handleError={handleDateError}
+    darkMode={true}
+  />
+);`
+
+In this example, the `SimpleCalendar` component:
+
+-   Validates dates to ensure they are not in the past.
+-   Displays an error message when an invalid date is selected.
+-   Renders in dark mode.
+
+
 ## Calendar Component
 
 For calendar tasks with simple requirements
 and date picking requirements, also includes custom functions to validate dates
 
 ### Example Usage
-
 ```tsx
 "use client";
 import React from "react";
@@ -79,30 +254,29 @@ export default function Home() {
     </main>
   );
 }
-```
+````
 
-Props
------
+## Props
 
 The `Calendar` component accepts the following props:
 
 ### `validateDateFunction`
 
--   **Type:** `(date: Date) => boolean`
--   **Description:** A function that validates if a given date is selectable. It should return `true` if the date is valid, and `false` otherwise.
--   **Required:** Yes
+- **Type:** `(date: Date) => boolean`
+- **Description:** A function that validates if a given date is selectable. It should return `true` if the date is valid, and `false` otherwise.
+- **Required:** Yes
 
 ### `errorMessage`
 
--   **Type:** `string`
--   **Description:** The error message displayed when an invalid date is selected.
--   **Required:** Yes
+- **Type:** `string`
+- **Description:** The error message displayed when an invalid date is selected.
+- **Required:** Yes
 
 ### `handleError`
 
--   **Type:** `(msg: string) => void`
--   **Description:** A function that handles displaying error messages. It receives the `errorMessage` string when an invalid date is clicked.
--   **Required:** Yes
+- **Type:** `(msg: string) => void`
+- **Description:** A function that handles displaying error messages. It receives the `errorMessage` string when an invalid date is clicked.
+- **Required:** Yes
 
 ## Booking Calendar Component
 
