@@ -5,7 +5,7 @@ interface SimpleCalendarProps {
   validateDateFunction: (date: Date) => boolean;
   errorMessage: string;
   handleError: (msg: string) => void;
-  darkMode?: boolean; // New prop for dark mode
+  darkMode?: boolean;
   handleDateSelect: (date: Date) => void;
 }
 

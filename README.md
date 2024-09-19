@@ -12,7 +12,6 @@ integrations
 
 <img width="989" alt="Screen Shot 2024-09-19 at 17 54 58" src="https://github.com/user-attachments/assets/22420d35-f8be-483e-a545-b34b5334fc9d">
 
-
 ## Features
 
 - **Responsive Design**: Automatically adjusts to different screen sizes.
@@ -43,31 +42,32 @@ yarn add gott-calendar-ui
 The `SimpleRangePicker` is a React component that allows users
 to select a date range. It provides features like custom date validation, error handling, and dark mode support.
 
-````tsx
+```tsx
 import SimpleRangePicker from "./SimpleRangePicker";
 
 const handleRangeSelection = (startDate, endDate) => {
-  console.log(`Selected range: ${startDate} to ${endDate}`);
+  console.log(`Selected range: ${startDate} to ${endDate}`);
 };
 
 const handleError = (msg) => {
-  console.error(msg);
+  console.error(msg);
 };
 
 const App = () => (
-  <SimpleRangePicker
-    validateDateFunction={(date) => date >= new Date()}
-    errorMessage="Selected date is in the past."
-    handleError={handleError}
-    validateRange={(startDate, endDate) => endDate - startDate <= 7 * 24 * 60 * 60 * 1000} // Max 7 days range
-    rangeSelected={handleRangeSelection}
-    handleRangeInvalidError={(msg) => alert(msg)}
-    rangeInvalidErrorMessage="The selected range is too long."
-    darkMode={false}
-  />
+  <SimpleRangePicker
+    validateDateFunction={(date) => date >= new Date()}
+    errorMessage="Selected date is in the past."
+    handleError={handleError}
+    validateRange={(startDate, endDate) => {
+      return true;
+    }}
+    rangeSelected={handleRangeSelection}
+    handleRangeInvalidError={(msg) => alert(msg)}
+    rangeInvalidErrorMessage="The selected range is too long."
+    darkMode={false}
+  />
 );
-````
-
+```
 
 ## Props
 
@@ -123,13 +123,11 @@ The `SimpleRangePicker` component accepts the following props
 -   `hoverDate`: The date that the mouse is currently hovering over.
 -   `selectedRange`: A string representation of the selected date range.
 
-
 ## SimpleCalendar Component
 
 The `SimpleCalendar` is a React component that allows users to select individual dates from a calendar. It includes features for custom date validation, error handling, and optional dark mode support.
 
-
-````tsx
+```tsx
 import React, { useState } from "react";
 import "./output.css";
 
@@ -150,52 +148,50 @@ export const SimpleCalendar = ({
 }: SimpleCalendarProps) => {
   // Component implementation
 };
-````
+```
 
 ### Props
 
 The `SimpleCalendar` component accepts the following props:
 
--   **`validateDateFunction`**
+- **`validateDateFunction`**
 
-    -   **Type**: `(date: Date) => boolean`
-    -   **Description**: A function to validate the date selected by the user. If the function returns `false`, the date is considered invalid, and the `handleError` function will be called with the `errorMessage`.
+  - **Type**: `(date: Date) => boolean`
+  - **Description**: A function to validate the date selected by the user. If the function returns `false`, the date is considered invalid, and the `handleError` function will be called with the `errorMessage`.
 
--   **`errorMessage`**
+- **`errorMessage`**
 
-    -   **Type**: `string`
-    -   **Description**: The error message to display when an invalid date is selected according to the `validateDateFunction`.
+  - **Type**: `string`
+  - **Description**: The error message to display when an invalid date is selected according to the `validateDateFunction`.
 
--   **`handleError`**
+- **`handleError`**
 
-    -   **Type**: `(msg: string) => void`
-    -   **Description**: Callback function that is called when an invalid date is selected. The `errorMessage` will be passed as an argument.
+  - **Type**: `(msg: string) => void`
+  - **Description**: Callback function that is called when an invalid date is selected. The `errorMessage` will be passed as an argument.
 
--   **`darkMode`** (optional)
+- **`darkMode`** (optional)
 
-    -   **Type**: `boolean`
-    -   **Default**: `false`
-    -   **Description**: Determines if the component should be rendered in dark mode. If `true`, the component will use a dark color scheme. Defaults to light mode when not provided.
+  - **Type**: `boolean`
+  - **Default**: `false`
+  - **Description**: Determines if the component should be rendered in dark mode. If `true`, the component will use a dark color scheme. Defaults to light mode when not provided.
 
--   **`handleDateSelect`**
+- **`handleDateSelect`**
 
-    -   **Type**: `(date: Date) => void`
-    -   **Description**: A callback function that is called when a date is selected. The selected date is passed as an argument.
-
+  - **Type**: `(date: Date) => void`
+  - **Description**: A callback function that is called when a date is selected. The selected date is passed as an argument.
 
 ### Rendering
 
 The component renders a calendar interface with the following features:
 
--   **Month Navigation**: Buttons to navigate to the previous and next months.
--   **Weekday Headers**: Displays the days of the week (Sun-Sat).
--   **Date Cells**: Each date is displayed in a cell, with styles applied for the current day, selected day, and weekends.
--   **Legend**: A legend at the bottom explains the color coding for the current date and selected date.
+- **Month Navigation**: Buttons to navigate to the previous and next months.
+- **Weekday Headers**: Displays the days of the week (Sun-Sat).
+- **Date Cells**: Each date is displayed in a cell, with styles applied for the current day, selected day, and weekends.
+- **Legend**: A legend at the bottom explains the color coding for the current date and selected date.
 
 ### Example Usage
 
-
-````tsx
+```tsx
 const handleDateError = (msg: string) => {
   console.error(msg);
 };
@@ -213,15 +209,14 @@ const App = () => (
     darkMode={true}
   />
 );
-````
+```
 
 In this example, the `SimpleCalendar` component:
 
--   Validates dates to ensure they are not in the past.
--   Displays an error message when an invalid date is selected.
--   Calls `handleDateSelect` with the selected date when a valid date is clicked.
--   Renders in dark mode.
-
+- Validates dates to ensure they are not in the past.
+- Displays an error message when an invalid date is selected.
+- Calls `handleDateSelect` with the selected date when a valid date is clicked.
+- Renders in dark mode.
 
 ## Calendar Component
 
@@ -229,6 +224,7 @@ For calendar tasks with simple requirements
 and date picking requirements, also includes custom functions to validate dates
 
 ### Example Usage
+
 ```tsx
 "use client";
 import React from "react";
@@ -266,7 +262,7 @@ export default function Home() {
     </main>
   );
 }
-````
+```
 
 ## Props
 
