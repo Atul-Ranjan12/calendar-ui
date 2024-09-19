@@ -8,7 +8,7 @@ interface SimpleCalendarProps {
   darkMode?: boolean; // New prop for dark mode
 }
 
-const SimpleCalendar = ({
+export const SimpleCalendar = ({
   validateDateFunction,
   errorMessage,
   handleError,
@@ -184,5 +184,3 @@ const SimpleCalendar = ({
     </div>
   );
 };
-
-export default SimpleCalendar;

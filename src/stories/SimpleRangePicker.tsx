@@ -12,7 +12,7 @@ interface SimpleRangePickerProps {
   darkMode?: boolean;
 }
 
-const SimpleRangePicker = ({
+export const SimpleRangePicker = ({
   validateDateFunction,
   errorMessage,
   handleError,
@@ -250,5 +250,3 @@ const SimpleRangePicker = ({
     </div>
   );
 };
-
-export default SimpleRangePicker;
