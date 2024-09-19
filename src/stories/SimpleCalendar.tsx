@@ -6,12 +6,14 @@ interface SimpleCalendarProps {
   errorMessage: string;
   handleError: (msg: string) => void;
   darkMode?: boolean; // New prop for dark mode
+  handleDateSelect: (date: Date) => void;
 }
 
 export const SimpleCalendar = ({
   validateDateFunction,
   errorMessage,
   handleError,
+  handleDateSelect,
   darkMode = false, // Default to light mode
 }: SimpleCalendarProps) => {
   const dateToday = new Date();
@@ -21,6 +23,7 @@ export const SimpleCalendar = ({
   function dateClicked(day: Date) {
     if (!validateDateFunction) {
       setSelectedDate(day);
+      handleDateSelect(day);
       return;
     }
 
@@ -30,6 +33,7 @@ export const SimpleCalendar = ({
       return;
     }
     setSelectedDate(day);
+    handleDateSelect(day);
   }
 
   const goToPrevMonth = () => {
