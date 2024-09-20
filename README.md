@@ -8,9 +8,9 @@ calendar features that can be easily integrated into your react-app.
 The calendar is easy to use, intuitive, and good looking for
 integrations
 
-<img width="995" alt="Screen Shot 2024-09-19 at 17 54 40" src="https://github.com/user-attachments/assets/6911819b-058c-4211-86f6-bd380ac66ac8">
 
-<img width="989" alt="Screen Shot 2024-09-19 at 17 54 58" src="https://github.com/user-attachments/assets/22420d35-f8be-483e-a545-b34b5334fc9d">
+<img width="985" alt="Screen Shot 2024-09-20 at 17 39 55" src="https://github.com/user-attachments/assets/420e6fba-c0fb-49c5-a1a2-21ca6e24bd21">
+
 
 ## Features
 
@@ -139,6 +139,9 @@ The component includes basic accessibility features such as keyboard navigation 
 - The component relies on CSS classes defined in "output.css" for styling.
 - Form submission and custom proceed functionality should be implemented in the parent component.
 
+
+<img width="995" alt="Screen Shot 2024-09-19 at 17 54 40" src="https://github.com/user-attachments/assets/6911819b-058c-4211-86f6-bd380ac66ac8">
+
 ## SimpleRangePicker Component
 
 The `SimpleRangePicker` is a React component that allows users
@@ -224,6 +227,8 @@ The `SimpleRangePicker` component accepts the following props
 -   `rangeEnd`: The end date of the selected range.
 -   `hoverDate`: The date that the mouse is currently hovering over.
 -   `selectedRange`: A string representation of the selected date range.
+
+<img width="989" alt="Screen Shot 2024-09-19 at 17 54 58" src="https://github.com/user-attachments/assets/22420d35-f8be-483e-a545-b34b5334fc9d">
 
 ## SimpleCalendar Component
 
