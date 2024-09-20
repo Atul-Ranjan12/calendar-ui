@@ -92,33 +92,88 @@ To use the SimpleReservationCalendar component:
 2. Provide the required props, including validation function, error handling, and date selection callback.
 3. Optionally provide reservation dates, custom proceed function, or form data as needed.
 
-Example:
+## Basic Usage
+
+Here's a basic example of how to use the SimpleReservationCalendar component:
 
 ```jsx
-import { SimpleReservationCalendar } from './SimpleReservationCalendar';
+import React from 'react';
+import { SimpleReservationCalendar } from 'gott-calendar-ui';
 
 function App() {
+  const handleDateSelect = (date, timing) => {
+    console.log('Selected date:', date, 'Timing:', timing);
+  };
+
+  const handleError = (errorMessage) => {
+    console.error('Reservation Error:', errorMessage);
+  };
+
+  return (
+    <SimpleReservationCalendar
+      validateDateFunction={(date) => date >= new Date()}
+      onDateSelect={handleDateSelect}
+      handleError={handleError}
+      errorMessage="This date is not available for reservation."
+      darkMode={false}
+    />
+  );
+}
+
+export default App;
+```
+
+## Advanced Usage with All Props
+
+For a more comprehensive setup, you can utilize all available props:
+
+```jsx
+import React from 'react';
+import { SimpleReservationCalendar } from 'gott-calendar-ui';
+import { sampleReservationDates, sampleFormFields } from './sampleData';
+
+function AdvancedReservationApp() {
   const validateDate = (date) => {
-    // Your date validation logic
-    return true;
+    // Custom date validation logic
+    const today = new Date();
+    return date >= today && date <= new Date(today.getFullYear(), today.getMonth() + 3, today.getDate());
   };
 
   const handleDateSelect = (date, timing) => {
-    console.log('Selected:', date, timing);
+    console.log('Reservation selected for:', date, 'at', timing);
+  };
+
+  const handleError = (errorMessage) => {
+    // Display error in your preferred UI component
+    alert(errorMessage);
+  };
+
+  const handleFormSubmit = (formData) => {
+    console.log('Form submitted with data:', formData);
+    // Process the form data (e.g., send to backend)
+  };
+
+  const customProceed = () => {
+    console.log('Custom proceed action triggered');
+    // Implement your custom logic here
   };
 
   return (
     <SimpleReservationCalendar
       validateDateFunction={validateDate}
-      errorMessage="Invalid date selected"
-      handleError={(msg) => console.error(msg)}
       onDateSelect={handleDateSelect}
+      handleError={handleError}
+      errorMessage="Selected date is not available or out of range."
       darkMode={false}
-      // Add other props as needed
+      reservationDates={sampleReservationDates}
+      formFillData={sampleFormFields}
+      onFormFillAction={handleFormSubmit}
+      customProceedFunction={customProceed}
     />
   );
 }
-```
+
+export default AdvancedReservationApp;
 
 ## Customization
 
