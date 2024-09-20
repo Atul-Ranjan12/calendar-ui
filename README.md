@@ -37,6 +37,108 @@ or using yarn
 yarn add gott-calendar-ui
 ```
 
+## SimpleReservationCalendar Component
+
+The SimpleReservationCalendar is a React component that provides a customizable calendar interface for making reservations. It supports date selection, time slot selection, and optional form filling.
+
+### Props
+
+The component accepts the following props:
+
+- `validateDateFunction: (date: Date) => boolean`: A function to validate selected dates.
+- `errorMessage: string`: Error message to display when date validation fails.
+- `handleError: (msg: string) => void`: Function to handle error messages.
+- `darkMode?: boolean`: Optional. Enables dark mode styling when true.
+- `onDateSelect: (date: Date, timing?: string) => void`: Callback function when a date (and optionally a time) is selected.
+- `reservationDates?: ReservationDate[]`: Optional. Array of available reservation dates with their respective time slots.
+- `customProceedFunction?: () => void`: Optional. Custom function to execute when proceeding with the reservation.
+- `formFillData?: FormData[]`: Optional. Array of form fields to display for additional information.
+- `onFormFillAction?: (formData: { [key: string]: string }) => {}`: Optional. Function to execute when the form is submitted.
+
+## Interfaces
+
+### ReservationDate
+```typescript
+interface ReservationDate {
+  date: Date;
+  numSlots: number;
+  timings?: string[];
+}
+```
+
+### FormData
+```typescript
+interface FormData {
+  name: string;
+  labelName: string;
+  placeholder: string;
+}
+```
+
+## Features
+
+1. **Calendar Display**: Shows a monthly calendar with navigation controls.
+2. **Date Selection**: Allows users to select available dates.
+3. **Time Slot Selection**: If available, displays time slots for selected dates.
+4. **Dark Mode**: Supports a dark color scheme for better visibility in low-light environments.
+5. **Form Integration**: Can display a customizable form for additional information gathering.
+6. **Responsive Design**: Adapts to different screen sizes for optimal user experience.
+
+## Usage
+
+To use the SimpleReservationCalendar component:
+
+1. Import the component into your React application.
+2. Provide the required props, including validation function, error handling, and date selection callback.
+3. Optionally provide reservation dates, custom proceed function, or form data as needed.
+
+Example:
+
+```jsx
+import { SimpleReservationCalendar } from './SimpleReservationCalendar';
+
+function App() {
+  const validateDate = (date) => {
+    // Your date validation logic
+    return true;
+  };
+
+  const handleDateSelect = (date, timing) => {
+    console.log('Selected:', date, timing);
+  };
+
+  return (
+    <SimpleReservationCalendar
+      validateDateFunction={validateDate}
+      errorMessage="Invalid date selected"
+      handleError={(msg) => console.error(msg)}
+      onDateSelect={handleDateSelect}
+      darkMode={false}
+      // Add other props as needed
+    />
+  );
+}
+```
+
+## Customization
+
+The component can be customized by:
+- Providing custom validation logic
+- Specifying available dates and time slots
+- Implementing a custom proceed function
+- Defining form fields for additional data collection
+- Toggling dark mode
+
+## Accessibility
+
+The component includes basic accessibility features such as keyboard navigation and semantic HTML structure. However, additional testing and enhancements may be required for full accessibility compliance.
+
+## Notes
+
+- Ensure that all required props are provided to avoid runtime errors.
+- The component relies on CSS classes defined in "output.css" for styling.
+- Form submission and custom proceed functionality should be implemented in the parent component.
+
 ## SimpleRangePicker Component
 
 The `SimpleRangePicker` is a React component that allows users
