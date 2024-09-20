@@ -150,6 +150,24 @@ export const sampleReservationDates: ReservationDate[] = [
   },
 ];
 
+export const sampleFormFields: FormData[] = [
+  {
+    name: "fullName",
+    labelName: "Full name",
+    placeholder: "Enter your full name",
+  },
+  {
+    name: "email",
+    labelName: "Email Address",
+    placeholder: "Enter your email address",
+  },
+  {
+    name: "organization",
+    labelName: "Organization",
+    placeholder: "Enter your organization name",
+  },
+];
+
 function AdvancedReservationApp() {
   const validateDate = (date) => {
     // Custom date validation logic

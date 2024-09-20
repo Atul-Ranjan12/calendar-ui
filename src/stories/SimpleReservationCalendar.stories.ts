@@ -39,7 +39,7 @@ export const Primary: Story = {
     validateDateFunction: (date: Date) => true,
     onDateSelect: (date: Date) => console.log("This date was picked: ", date),
     handleError: (msg: string) => console.log("An error occured: ", msg),
-    darkMode: false,
+    darkMode: true,
     reservationDates: sampleReservationDates,
     errorMessage: "An Error occured",
     formFillData: sampleFormFields,
