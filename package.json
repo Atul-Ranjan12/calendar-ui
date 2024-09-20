@@ -14,12 +14,18 @@
     "build-lib": "rollup -c"
   },
   "keywords": [
+    "react-calendar",
+    "calendar-ui",
     "calendar",
-    "calendar-react",
+    "booking-calendar",
+    "react-booking-calendar",
+    "calendar-typescript",
+    "react-reservation-calendar",
     "reservation-calendar",
     "reservation-calendar-react",
     "booking-calendar-ui",
     "custom-react-calendar",
+    "react-simple-calendar",
     "simple-calendar",
     "simple-calendar-react"
   ],
