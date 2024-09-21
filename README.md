@@ -902,7 +902,3 @@ https://gottdata.com
 Reach out to me at:
 LinkedIn:
 https://www.linkedin.com/in/atul-ranjan-83025622a/
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
