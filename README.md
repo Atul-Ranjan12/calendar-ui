@@ -1,8 +1,5 @@
 # Gott-Calendar-UI
 
-- TypeScript, React
-- Version 0.3.40 features a complete set of calendars, date-pickers, range date pickers and more
-
 A simple and elegant booking calendar to get things done simply for
 React.
 
@@ -16,12 +13,12 @@ integrations
 <img width="985" alt="Screen Shot 2024-09-20 at 17 39 55" src="https://github.com/user-attachments/assets/420e6fba-c0fb-49c5-a1a2-21ca6e24bd21">
 
 ## Components:
-
 - **SimpleReservationCalendar**: The only reservation calendar your project needs with features to include timings, pick dates, enter form fields, etc
 - **DatePicker**: A simple, elegant date picker component for react for normal use
 - **RangeDatePicker**: A simple, elegant, range picker component to allow for date selections with a range
 - **SimpleCalendar**: A large simple calendar component to pick dates
 - **SimpleRangePicker**: A large simple calendar component to pick dates
+
 
 ## Features
 
@@ -247,6 +244,186 @@ The component includes basic accessibility features such as keyboard navigation 
 
 <img width="995" alt="Screen Shot 2024-09-19 at 17 54 40" src="https://github.com/user-attachments/assets/6911819b-058c-4211-86f6-bd380ac66ac8">
 
+
+## DatePicker Component
+
+The DatePicker is a React component that provides a customizable calendar interface for selecting a single date. It supports date validation, custom formatting, and optional dark mode styling.
+
+### Props
+
+The component accepts the following props:
+
+- `validateDateFunction?: (date: Date) => boolean`: Optional function to validate selected dates.
+- `errorMessage?: string`: Optional custom error message for invalid date selection.
+- `handleError?: (msg: string) => void`: Optional function to handle error messages.
+- `customDateFormatter?: (date: Date) => string`: Optional function to format the selected date.
+- `darkMode?: boolean`: Optional. Enables dark mode styling when true.
+- `onDateSelect: (date: Date) => void`: Callback function when a date is selected.
+- `placeholder?: string`: Optional placeholder text for the input field.
+- `inputStyles?: React.CSSProperties`: Optional custom styles for the input field.
+
+## Features
+
+1. **Calendar Display**: Shows a monthly calendar with navigation controls.
+2. **Date Selection**: Allows users to select a single date.
+3. **Date Validation**: Supports custom date validation logic.
+4. **Custom Formatting**: Allows custom formatting of the selected date.
+5. **Dark Mode**: Supports a dark color scheme for better visibility in low-light environments.
+6. **Responsive Design**: Adapts to different screen sizes for optimal user experience.
+7. **Customizable Input**: Allows custom styling and placeholder for the input field.
+
+## Usage
+
+To use the DatePicker component:
+
+1. Import the component into your React application.
+2. Provide the required `onDateSelect` prop and any optional props as needed.
+3. Handle the selected date in your application logic.
+
+## Basic Usage
+
+Here's a basic example of how to use the DatePicker component:
+
+```jsx
+import React from "react";
+import { DatePicker } from "gott-calendar-ui";
+
+function App() {
+  const handleDateSelect = (date) => {
+    console.log("Selected date:", date);
+  };
+
+  return (
+    <DatePicker onDateSelect={handleDateSelect} placeholder="Select a date" />
+  );
+}
+
+export default App;
+```
+
+## Advanced Usage with All Props
+
+For a more comprehensive setup, you can utilize all available props:
+
+```jsx
+import React from "react";
+import { DatePicker } from "gott-calendar-ui";
+
+function AdvancedDatePickerApp() {
+  const validateDate = (date) => {
+    const today = new Date();
+    return date >= today;
+  };
+
+  const handleDateSelect = (date) => {
+    console.log("Selected date:", date);
+  };
+
+  const handleError = (errorMessage) => {
+    alert(errorMessage);
+  };
+
+  const customFormatter = (date) => {
+    return date.toLocaleDateString("en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  };
+
+  return (
+    <DatePicker
+      validateDateFunction={validateDate}
+      onDateSelect={handleDateSelect}
+      handleError={handleError}
+      errorMessage="Please select a future date."
+      customDateFormatter={customFormatter}
+      darkMode={true}
+      placeholder="Choose your preferred date"
+      inputStyles={{ fontFamily: "Arial", fontSize: "14px" }}
+    />
+  );
+}
+
+export default AdvancedDatePickerApp;
+```
+
+## Customization
+
+The component can be customized by:
+
+- Providing custom date validation logic
+- Implementing custom error handling
+- Defining a custom date formatter
+- Toggling dark mode
+- Customizing the input field's placeholder and styles
+
+## Accessibility
+
+The component includes basic accessibility features such as keyboard navigation and semantic HTML structure. However, additional testing and enhancements may be required for full accessibility compliance.
+
+## Notes
+
+- Ensure that the `onDateSelect` prop is always provided to handle the selected date.
+- The component relies on CSS classes defined in "output.css" for styling.
+- The calendar will close when clicking outside of it or when a date is selected.
+- Weekend days (Saturday and Sunday) are visually distinguished in the calendar.
+
+
+## RangeDatePicker
+A customizable React component for selecting a date range.
+
+## Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| validateDateFunction | `(date: Date) => boolean` | - | Optional function to validate individual dates |
+| validateRange | `(startDate: Date, endDate: Date) => boolean` | - | Optional function to validate the selected date range |
+| onRangeSelect | `(startDate: Date, endDate: Date) => void` | - | Callback function called when a valid range is selected |
+| handleError | `(msg: string) => void` | - | Optional function to handle error messages |
+| errorMessage | string | "Invalid date" | Custom error message for invalid dates |
+| rangeInvalidErrorMessage | string | "Invalid date range" | Custom error message for invalid date ranges |
+| customDateFormatter | `(date: Date) => string` | - | Optional function to customize date formatting |
+| darkMode | boolean | false | Enable dark mode styling |
+| placeholderStart | string | "Start Date" | Placeholder text for the start date input |
+| placeholderEnd | string | "End Date" | Placeholder text for the end date input |
+| inputStyles | React.CSSProperties | - | Custom styles for the input fields |
+
+## Example
+
+```jsx
+import React from 'react';
+import { RangeDatePicker } from './RangeDatePicker';
+
+function App() {
+  const handleRangeSelect = (startDate, endDate) => {
+    console.log('Selected range:', startDate, endDate);
+  };
+
+  return (
+    <RangeDatePicker
+      onRangeSelect={handleRangeSelect}
+      darkMode={true}
+      placeholderStart="From"
+      placeholderEnd="To"
+    />
+  );
+}
+
+export default App;
+```
+
+## Notes
+
+- The component uses Tailwind CSS for styling.
+- Custom date validation and range validation can be implemented using `validateDateFunction` and `validateRange` props.
+- Error handling can be customized using the `handleError` prop and custom error messages.
+- The calendar is responsive and adjusts its width based on the input container width.
+- Dark mode can be enabled using the `darkMode` prop.
+- Custom date formatting is possible using the `customDateFormatter` prop.
+
+
 ## SimpleRangePicker Component
 
 The `SimpleRangePicker` is a React component that allows users
@@ -285,53 +462,53 @@ The `SimpleRangePicker` component accepts the following props
 
 ### `validateDateFunction` (optional)
 
--   **Type**: `(date: Date) => boolean`
--   **Description**: A function to validate individual dates before selection. If this function returns `false`, the date will be considered invalid, and the `handleError` function will be called with the `errorMessage`.
+-   **Type**: `(date: Date) => boolean`
+-   **Description**: A function to validate individual dates before selection. If this function returns `false`, the date will be considered invalid, and the `handleError` function will be called with the `errorMessage`.
 
 ### `validateRange` (optional)
 
--   **Type**: `(startDate: Date, endDate: Date) => boolean`
--   **Description**: A function to validate the selected date range. If the function returns `false`, the `handleRangeInvalidError` function will be called with the `rangeInvalidErrorMessage`.
+-   **Type**: `(startDate: Date, endDate: Date) => boolean`
+-   **Description**: A function to validate the selected date range. If the function returns `false`, the `handleRangeInvalidError` function will be called with the `rangeInvalidErrorMessage`.
 
 ### `rangeSelected`
 
--   **Type**: `(startDate: Date, endDate: Date) => void`
--   **Description**: Callback function that is called when a valid date range is selected.
+-   **Type**: `(startDate: Date, endDate: Date) => void`
+-   **Description**: Callback function that is called when a valid date range is selected.
 
 ### `handleRangeInvalidError`
 
--   **Type**: `(msg: string) => void`
--   **Description**: Callback function that is called when the selected date range is invalid. The `rangeInvalidErrorMessage` will be passed as an argument.
+-   **Type**: `(msg: string) => void`
+-   **Description**: Callback function that is called when the selected date range is invalid. The `rangeInvalidErrorMessage` will be passed as an argument.
 
 ### `rangeInvalidErrorMessage`
 
--   **Type**: `string`
--   **Description**: The error message to display when an invalid date range is selected.
+-   **Type**: `string`
+-   **Description**: The error message to display when an invalid date range is selected.
 
 ### `errorMessage`
 
--   **Type**: `string`
--   **Description**: The error message to display when an individual date selection is invalid.
+-   **Type**: `string`
+-   **Description**: The error message to display when an individual date selection is invalid.
 
 ### `handleError`
 
--   **Type**: `(msg: string) => void`
--   **Description**: Callback function that is called when an individual date is invalid according to the `validateDateFunction`. The `errorMessage` will be passed as an argument.
+-   **Type**: `(msg: string) => void`
+-   **Description**: Callback function that is called when an individual date is invalid according to the `validateDateFunction`. The `errorMessage` will be passed as an argument.
 
 ### `darkMode` (optional)
 
--   **Type**: `boolean`
--   **Default**: `true`
+-   **Type**: `boolean`
+-   **Default**: `true`
 
--   **Description**: Determines if the component should be rendered in dark mode. If `true`, the component will use dark colors.
+-   **Description**: Determines if the component should be rendered in dark mode. If `true`, the component will use dark colors.
 
 ## State
 
--   `currentDate`: The currently displayed month in the calendar.
--   `rangeStart`: The start date of the selected range.
--   `rangeEnd`: The end date of the selected range.
--   `hoverDate`: The date that the mouse is currently hovering over.
--   `selectedRange`: A string representation of the selected date range.
+-   `currentDate`: The currently displayed month in the calendar.
+-   `rangeStart`: The start date of the selected range.
+-   `rangeEnd`: The end date of the selected range.
+-   `hoverDate`: The date that the mouse is currently hovering over.
+-   `selectedRange`: A string representation of the selected date range.
 
 <img width="989" alt="Screen Shot 2024-09-19 at 17 54 58" src="https://github.com/user-attachments/assets/22420d35-f8be-483e-a545-b34b5334fc9d">
 
@@ -497,131 +674,6 @@ The `Calendar` component accepts the following props:
 - **Type:** `(msg: string) => void`
 - **Description:** A function that handles displaying error messages. It receives the `errorMessage` string when an invalid date is clicked.
 - **Required:** Yes
-
-## DatePicker Component
-
-The DatePicker is a React component that provides a customizable calendar interface for selecting a single date. It supports date validation, custom formatting, and optional dark mode styling.
-
-### Props
-
-The component accepts the following props:
-
-- `validateDateFunction?: (date: Date) => boolean`: Optional function to validate selected dates.
-- `errorMessage?: string`: Optional custom error message for invalid date selection.
-- `handleError?: (msg: string) => void`: Optional function to handle error messages.
-- `customDateFormatter?: (date: Date) => string`: Optional function to format the selected date.
-- `darkMode?: boolean`: Optional. Enables dark mode styling when true.
-- `onDateSelect: (date: Date) => void`: Callback function when a date is selected.
-- `placeholder?: string`: Optional placeholder text for the input field.
-- `inputStyles?: React.CSSProperties`: Optional custom styles for the input field.
-
-## Features
-
-1. **Calendar Display**: Shows a monthly calendar with navigation controls.
-2. **Date Selection**: Allows users to select a single date.
-3. **Date Validation**: Supports custom date validation logic.
-4. **Custom Formatting**: Allows custom formatting of the selected date.
-5. **Dark Mode**: Supports a dark color scheme for better visibility in low-light environments.
-6. **Responsive Design**: Adapts to different screen sizes for optimal user experience.
-7. **Customizable Input**: Allows custom styling and placeholder for the input field.
-
-## Usage
-
-To use the DatePicker component:
-
-1. Import the component into your React application.
-2. Provide the required `onDateSelect` prop and any optional props as needed.
-3. Handle the selected date in your application logic.
-
-## Basic Usage
-
-Here's a basic example of how to use the DatePicker component:
-
-```jsx
-import React from "react";
-import { DatePicker } from "gott-calendar-ui";
-
-function App() {
-  const handleDateSelect = (date) => {
-    console.log("Selected date:", date);
-  };
-
-  return (
-    <DatePicker onDateSelect={handleDateSelect} placeholder="Select a date" />
-  );
-}
-
-export default App;
-```
-
-## Advanced Usage with All Props
-
-For a more comprehensive setup, you can utilize all available props:
-
-```jsx
-import React from "react";
-import { DatePicker } from "gott-calendar-ui";
-
-function AdvancedDatePickerApp() {
-  const validateDate = (date) => {
-    const today = new Date();
-    return date >= today;
-  };
-
-  const handleDateSelect = (date) => {
-    console.log("Selected date:", date);
-  };
-
-  const handleError = (errorMessage) => {
-    alert(errorMessage);
-  };
-
-  const customFormatter = (date) => {
-    return date.toLocaleDateString("en-US", {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  };
-
-  return (
-    <DatePicker
-      validateDateFunction={validateDate}
-      onDateSelect={handleDateSelect}
-      handleError={handleError}
-      errorMessage="Please select a future date."
-      customDateFormatter={customFormatter}
-      darkMode={true}
-      placeholder="Choose your preferred date"
-      inputStyles={{ fontFamily: "Arial", fontSize: "14px" }}
-    />
-  );
-}
-
-export default AdvancedDatePickerApp;
-```
-
-## Customization
-
-The component can be customized by:
-
-- Providing custom date validation logic
-- Implementing custom error handling
-- Defining a custom date formatter
-- Toggling dark mode
-- Customizing the input field's placeholder and styles
-
-## Accessibility
-
-The component includes basic accessibility features such as keyboard navigation and semantic HTML structure. However, additional testing and enhancements may be required for full accessibility compliance.
-
-## Notes
-
-- Ensure that the `onDateSelect` prop is always provided to handle the selected date.
-- The component relies on CSS classes defined in "output.css" for styling.
-- The calendar will close when clicking outside of it or when a date is selected.
-- Weekend days (Saturday and Sunday) are visually distinguished in the calendar.
 
 ## SimpleReservationCalendar Component
 
