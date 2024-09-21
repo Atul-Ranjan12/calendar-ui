@@ -1,7 +1,7 @@
 # Gott-Calendar-UI
 
 - TypeScript, React
-- Version 0.3.39 features a complete set of calendars, date-pickers, range date pickers and more
+- Version 0.3.40 features a complete set of calendars, date-pickers, range date pickers and more
 
 A simple and elegant booking calendar to get things done simply for
 React.
