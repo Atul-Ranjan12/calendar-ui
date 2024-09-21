@@ -1,8 +1,7 @@
 # Gott-Calendar-UI
 
--- TypeScript, React
-
--- Version 0.3.38 features a complete set of calendars, date-pickers, range date pickers and more
+- TypeScript, React
+- Version 0.3.38 features a complete set of calendars, date-pickers, range date pickers and more
 
 A simple and elegant booking calendar to get things done simply for
 React.
@@ -18,11 +17,11 @@ integrations
 
 ## Components:
 
--- **SimpleReservationCalendar**: The only reservation calendar your project needs with features to include timings, pick dates, enter form fields, etc
--- **DatePicker**: A simple, elegant date picker component for react for normal use
--- **RangeDatePicker**: A simple, elegant, range picker component to allow for date selections with a range
--- **SimpleCalendar**: A large simple calendar component to pick dates
--- **SimpleRangePicker**: A large simple calendar component to pick dates
+- **SimpleReservationCalendar**: The only reservation calendar your project needs with features to include timings, pick dates, enter form fields, etc
+- **DatePicker**: A simple, elegant date picker component for react for normal use
+- **RangeDatePicker**: A simple, elegant, range picker component to allow for date selections with a range
+- **SimpleCalendar**: A large simple calendar component to pick dates
+- **SimpleRangePicker**: A large simple calendar component to pick dates
 
 ## Features
 
