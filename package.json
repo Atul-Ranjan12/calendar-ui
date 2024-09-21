@@ -1,6 +1,6 @@
 {
   "name": "gott-calendar-ui",
-  "version": "0.3.36",
+  "version": "0.3.38",
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "module": "dist/index.es.js",
@@ -14,7 +14,14 @@
     "build-lib": "rollup -c"
   },
   "keywords": [
+    "react-datepicker",
+    "react-daterangepicker",
+    "datepicker",
+    "darkmode-date-picker",
+    "darkmode-date-range-picker",
+    "custom-date-picker",
     "react-calendar",
+    "daterangepicker",
     "calendar-ui",
     "calendar",
     "booking-calendar",

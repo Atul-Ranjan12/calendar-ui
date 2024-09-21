@@ -8,5 +8,5 @@ interface SimpleCalendarProps {
     onDateSelect: (date: Date) => void;
     message: string;
 }
-export declare const SimpleCalendar: ({ validateDateFunction, errorMessage, handleError, onDateSelect, message, darkMode, }: SimpleCalendarProps) => React.JSX.Element;
+export declare const SimpleCalendar: ({ validateDateFunction, errorMessage, handleError, onDateSelect, darkMode, }: SimpleCalendarProps) => React.JSX.Element;
 export {};

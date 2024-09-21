@@ -258,6 +258,7 @@ export const SimpleReservationCalendar = ({
 
         <div className="flex flex-col ml-4 w-full space-y-2 mt-4">
           {selectedReservation &&
+            selectedReservation.timings &&
             selectedReservation.timings.map((timing) => (
               <button
                 key={timing}

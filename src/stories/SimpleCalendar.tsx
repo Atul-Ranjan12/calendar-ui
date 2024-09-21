@@ -15,7 +15,6 @@ export const SimpleCalendar = ({
   errorMessage,
   handleError,
   onDateSelect,
-  message,
   darkMode = false,
 }: SimpleCalendarProps) => {
   const dateToday = new Date();
